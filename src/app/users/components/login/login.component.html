@@ -29,8 +29,13 @@
               Invalid user name or password
           </div>
           <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-          <a href="javascript://" class="signup">Registrarse</a>
-          <a href="javascript://" class="signup">Recuperar contraseña</a>
+          <a href="javascript://" (click)="onChangeMode('register')" class="signup">Registrarse</a>
+          <a href="javascript://" (click)="onChangeMode('forgot')" class="signup">Recuperar contraseña</a>
       </div>
   </form>
+  <app-register #register
+    class="login"  
+    [(mode)]="mode"
+    *ngIf="mode === 'register'">
+</app-register>
 </div>

@@ -39,4 +39,9 @@ export class LoginComponent implements OnInit {
     console.log('submitLogin');
   }
 
+  public onChangeMode(data:any):void{
+    this.mode = data;
+    this.loginForm.reset();
+  }
+
 }
