@@ -38,4 +38,8 @@
     [(mode)]="mode"
     *ngIf="mode === 'register'">
 </app-register>
+<app-forget #forgot
+    class="login"
+    *ngIf="mode === 'forgot'">
+</app-forget>
 </div>

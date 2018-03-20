@@ -1,0 +1,21 @@
+<form [formGroup]="forgotForm" (ngSubmit)="submitForgot($event)" novalidate>
+  <label class="title">
+      <h3 class="welcome">Bienvenido</h3>
+      Taller Angular - Personalsoft
+      <h5 class="hint">Capacitación Angular</h5>
+  </label>
+  <div class="login-group">
+      <input formControlName="email"
+          type="text"
+          id="email"
+          class="email"
+          placeholder="email"
+          [ngClass]="{ 'error': forgotForm.get('email').touched && forgotForm.get('email').invalid }">
+      <div [hidden]="true" class="error active">
+          Invalid user name or password
+      </div>
+      <button type="submit" class="btn btn-outline">Enviar</button>
+      <a href="javascript://" (click)="goBack()" class="signup">Iniciar sesion</a>
+  </div>
+</form>
+
