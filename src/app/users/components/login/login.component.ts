@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms"
 import { UserService } from '../../../core/services/user.service';
 
 import 'rxjs/add/operator/retry';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   public mode :string;
 
-  constructor(private _userService:UserService) { 
+  constructor(private _userService:UserService, private _route: Router) { 
     this.mode = 'login';
   }
 
@@ -46,7 +47,8 @@ export class LoginComponent implements OnInit {
       this._userService.login(username, password)
         .retry(3)
         .subscribe((data) => {
-          console.log(data, 'Login')
+          console.log(data, 'Login');
+          this._route.navigate(['/dashboard']);
         });
     }else {
       Object.keys(this.loginForm.controls).forEach((field) => {
