@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 import { UsersModule } from '../users/users.module';
 
 import { AppComponent } from './app.component';
+import { Common } from './utils/common.util';
+import { AuthInterceptor } from './utils/interceptors/auth-interceptor';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -10,9 +13,19 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    UsersModule
+    UsersModule,
+    HttpClientModule,
+
   ],
-  providers: [],
+  providers: [
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true,
+    deps: [Injector],
+    
+  },
+    Common],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

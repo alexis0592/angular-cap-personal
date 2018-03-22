@@ -2,7 +2,7 @@
 	border-bottom: 1px solid red;
 }
 
-.login-wrapper .login .login-group .error {
+.login-group .error {
 	display: initial;
 	background: transparent;
 	color: #000;

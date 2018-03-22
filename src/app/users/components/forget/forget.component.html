@@ -5,12 +5,13 @@
       <h5 class="hint">Capacitación Angular</h5>
   </label>
   <div class="login-group">
-      <input formControlName="email"
-          type="text"
-          id="email"
-          class="email"
-          placeholder="email"
-          [ngClass]="{ 'error': forgotForm.get('email').touched && forgotForm.get('email').invalid }">
+    <input formControlName="email"
+        type="email"
+        id="email"
+        class="email"
+        autocomplete='email'
+        placeholder="E-mail"
+        [ngClass]="{ 'error': forgotForm.get('email').touched && forgotForm.get('email').invalid }">
       <div [hidden]="true" class="error active">
           Invalid user name or password
       </div>
